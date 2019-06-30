@@ -1,0 +1,25 @@
+Jenkins Installation Steps 
+yum install java-1.8*
+
+Cofirm Java Version
+java -version
+find /usr/lib/jvm/java-1.8* | head -n 3
+#JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64
+export JAVA_HOME
+PATH=$PATH:$JAVA_HOME
+# To set it permanently update your .bash_profile
+source ~/.bash_profile
+
+Jenkins Installation
+yum -y install wget
+wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum -y install jenkins
+
+Start and Enable Jenkins
+systemctl start jenkins
+
+# Setup Jenkins to start at boot,
+systemctl enable jenkins
+
+Then Access jenkins using ip:8080

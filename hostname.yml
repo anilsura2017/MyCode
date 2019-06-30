@@ -1,0 +1,7 @@
+---
+- name: "hostnames"
+  hosts: all
+  become: true
+  tasks:
+   - name: hostname of all servers
+     command: hostname

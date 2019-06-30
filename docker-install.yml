@@ -1,0 +1,7 @@
+---
+- name: "AWS - Install docker"
+  hosts: appserver
+  become: true
+  tasks:
+   - name: install docker on docker host
+     yum: name=docker state=present update_cache=yes

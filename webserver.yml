@@ -1,0 +1,19 @@
+---
+- hosts: appserver
+  become: true
+  tasks:
+   - name: install web components
+     yum: name={{item}} state=present update_cache=yes
+     with_items:
+        - httpd
+        - php
+        - php-mysql
+        - php-xml
+        - php-intl
+        - mysql
+
+   - name: ensure httpd started
+     service: name=httpd state=started enabled=yes
+
+   - name: ensure php-mysql started
+     service: name=php-mysql state=started enabled=yes

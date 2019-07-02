@@ -1,0 +1,8 @@
+---
+- name: pull centos image
+  hosts: appserver
+  become: true
+  tasks:
+  - name: pull
+    docker_image:
+       name: centos

@@ -1,0 +1,16 @@
+---
+- name: copy file
+  hosts: appserver
+  tasks:
+  - name: copy files to docker host
+    copy:
+    src: /var/www/html/mediawiki/index.php
+    dest: /opt/docker
+
+
+
+
+this yml is used while using jenkins as a build tool and
+
+by deploying that .war/jar file into the docker we can create dockerfile
+by using that dockerfile and web image we can create docker image and create container for that application.

@@ -1,0 +1,13 @@
+---
+- name: create container
+  hosts: appserver
+  tasks::
+   - name: web container
+     docker_container
+       name:  wiki
+       image: mediawiki
+       state: started
+       ports:
+        - "8080:80"
+        tty: true
+        detach: true

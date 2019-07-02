@@ -1,0 +1,10 @@
+---
+- name: Create web Image
+  hosts: appserver
+  tasks:
+  - name: Build Image
+    docker_image:
+      path: /opt/docker
+      name: mediawiki
+
+
